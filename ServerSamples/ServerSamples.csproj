@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Siroman.Blazor.Viewer3D" Version="0.1.0" />
+    <PackageReference Include="Siroman.Blazor.Viewer3D" Version="0.1.2" />
   </ItemGroup>
 
 </Project>

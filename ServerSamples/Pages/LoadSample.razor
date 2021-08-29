@@ -1,0 +1,33 @@
+﻿@page "/loadsample"
+
+<View3D @ref="View3D1" ComponentOptions=@options />
+@*<View3D @ref="View3D1" ComponentOptions=@options />*@
+
+@code {
+    private View3D View3D1;
+    private ComponentOptions options = new ComponentOptions()
+    {
+        Width = "320px",
+        Height = "240px"
+    };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            View3D1.Load += OnModuleLoaded;
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    async Task OnModuleLoaded(object sender, EventArgs e)
+    {
+        await View3D1.LoadCollada("https://threejs.org/examples/models/collada/elf/elf.dae");
+        await View3D1.SetCameraPosition(new Position()
+        {
+            Y = 5,
+            Z = 10
+        });
+    }
+}

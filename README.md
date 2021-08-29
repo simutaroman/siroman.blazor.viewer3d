@@ -12,7 +12,7 @@ dotnet add package Siroman.Blazor.Viewer3D
 ```
 With Package Manager
 ```
-Install-Package Siroman.Blazor.Viewer3D -Version 0.1.1
+Install-Package Siroman.Blazor.Viewer3D
 ```
 Or just download it from <https://www.nuget.org/packages/Siroman.Blazor.Viewer3D> and add it as project reference.
 

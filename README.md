@@ -20,7 +20,7 @@ Or just download it from <https://www.nuget.org/packages/Siroman.Blazor.Viewer3D
 
 ### Button click flow
 
-See example [here](../blob/main/WebAssemblySamples/Pages/Index.razor)
+See example [here](../main/WebAssemblySamples/Pages/Index.razor)
 1. Add usings to the _Imports.razor
 
 ```
@@ -54,7 +54,7 @@ See example [here](../blob/main/WebAssemblySamples/Pages/Index.razor)
 
 ### On page load flow
 
-See example [here](../blob/main/WebAssemblySamples/Pages/LoadSample.razor)
+See example [here](../main/WebAssemblySamples/Pages/LoadSample.razor)
 1. Add usings to the _Imports.razor
 
 ```

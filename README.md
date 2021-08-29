@@ -1,4 +1,4 @@
 # siroman.blazor.viewer3d
-![example](../readme/Assets/example.jpg)
+![blazor.viewer.3d](../readme/Assets/blazor.viewer3d.jpg)
 
 

@@ -18,15 +18,19 @@ Or just download it from <https://www.nuget.org/packages/Siroman.Blazor.Viewer3D
 
 ## How to use
 
+### Button click flow
+
+See example [here](../main/WebAssemblySamples/Pages/Index.razor)
 1. Add usings to the _Imports.razor
+
 ```
-...
 @using Siroman.Blazor.Viewer3D
 @using Siroman.Blazor.Viewer3D.Options
 @using Siroman.Blazor.Viewer3D.Common;
 ```
 
 2. Put the View3D component to you blazor application page and add some code
+
 ```
 <View3D @ref="View3D1"/>
 <br />
@@ -48,4 +52,50 @@ Or just download it from <https://www.nuget.org/packages/Siroman.Blazor.Viewer3D
 }
 ```
 
+### On page load flow
+
+See example [here](../main/WebAssemblySamples/Pages/LoadSample.razor)
+1. Add usings to the _Imports.razor
+
+```
+@using Siroman.Blazor.Viewer3D
+@using Siroman.Blazor.Viewer3D.Options
+@using Siroman.Blazor.Viewer3D.Common;
+```
+
+2. Put the View3D component to you blazor application page and add some code
+
+```
+<View3D @ref="View3D1" ComponentOptions=@options />
+
+@code {
+    private View3D View3D1;
+    private ComponentOptions options = new ComponentOptions()
+    {
+        Width = "320px",
+        Height = "240px"
+    };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // subscribe Load event and load model you wand
+            View3D1.Load += OnModuleLoaded;
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    async Task OnModuleLoaded(object sender, EventArgs e)
+    {
+        await View3D1.LoadCollada("https://threejs.org/examples/models/collada/elf/elf.dae");
+        await View3D1.SetCameraPosition(new Position()
+        {
+            Y = 5,
+            Z = 10
+        });
+    }
+}
+```
 
